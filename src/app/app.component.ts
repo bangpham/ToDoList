@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ToDoServiceService} from "./to-do-service.service";
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   inputVariable :  string = '';
-  myList : Array<string> = [];
+
+  constructor(private toDoService: ToDoServiceService) { }
+
   saveToDo() {
-    console.log(this.inputVariable);
-    this.myList.push(this.inputVariable);
+    this.toDoService.saveToDo(this.inputVariable);
   }
 
   remove() {
-    this.myList.pop();
+    this.toDoService.remove();
   }
 }

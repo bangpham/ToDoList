@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import {ToDoServiceService} from "./to-do-service.service";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ToDoServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

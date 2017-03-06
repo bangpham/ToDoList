@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {ToDoServiceService} from "../to-do-service.service";
 
 @Component({
   selector: 'app-search-box',
@@ -7,7 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SearchBoxComponent implements OnInit {
   @Input() myList : Array<string> = [];
-  constructor() { }
+  constructor(private toDoService: ToDoServiceService) {
+    this.toDoService.toDoObservable$.subscribe(item => {
+      this.myList = item;
+    });
+  }
 
   ngOnInit() {
   }
