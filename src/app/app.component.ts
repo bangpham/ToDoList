@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  inputVariable :  string = '';
+  myList : Array<string> = [];
+  saveToDo() {
+    console.log(this.inputVariable);
+    this.myList.push(this.inputVariable);
+  }
+
+  remove() {
+    this.myList.pop();
+  }
 }
